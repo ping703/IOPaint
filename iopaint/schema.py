@@ -167,6 +167,10 @@ class InteractiveSegModel(Choices):
     sam_hq_vit_l = "sam_hq_vit_l"
     sam_hq_vit_h = "sam_hq_vit_h"
     mobile_sam = "mobile_sam"
+    sam2_tiny = "sam2_tiny"
+    sam2_small = "sam2_small"
+    sam2_base = "sam2_base"
+    sam2_large = "sam2_large"
 
 
 class PluginInfo(BaseModel):
@@ -240,6 +244,7 @@ class ApiConfig(BaseModel):
     cpu_textencoder: bool
     device: Device
     input: Optional[Path]
+    mask_dir: Optional[Path]
     output_dir: Optional[Path]
     quality: int
     enable_interactive_seg: bool
@@ -432,7 +437,7 @@ class RunPluginRequest(BaseModel):
     scale: float = Field(2.0, description="Scale for upscaling")
 
 
-MediaTab = Literal["input", "output"]
+MediaTab = Literal["input", "output", "mask"]
 
 
 class MediasResponse(BaseModel):

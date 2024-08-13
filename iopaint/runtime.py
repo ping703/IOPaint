@@ -30,8 +30,6 @@ _CANDIDATES = [
     "accelerate",
     "iopaint",
     "rembg",
-    "realesrgan",
-    "gfpgan",
 ]
 # Check once at runtime
 for name in _CANDIDATES:
